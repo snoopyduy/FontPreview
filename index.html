@@ -63,7 +63,7 @@
         }
         
         textarea {
-            width: 100%;
+            <!width: 100%;
             height: 40px;
             min-height: 40px;
             padding: 8px;
@@ -71,7 +71,13 @@
             border-radius: 4px;
             font-size: 16px;
             resize: none;
-            overflow: hidden;
+            overflow: hidden;>
+		width: 100%;
+      		padding: 0.75rem;
+      		font-size: 1rem;
+      		border: 1px solid #d1d5db;
+      		border-radius: 0.375rem;
+      		margin-bottom: 1rem;
         }
         
         .options-container {
@@ -260,8 +266,7 @@
 			<input 
           		type="text" 
           		id="sample-text" 
-          		class="text-input-container" 
-          		placeholder="Nội dung dấu"
+          		class="text-input-container"           		
         		/>	
                 </div>
                 <div class="options-container">
