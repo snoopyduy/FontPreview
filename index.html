@@ -1,455 +1,441 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>Font Việt Preview</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&family=Lora&family=Open+Sans&family=Montserrat&family=Raleway&family=Playfair+Display&family=Merriweather&family=Source+Sans+Pro&family=PT+Sans&family=PT+Serif&family=Nunito&family=Nunito+Sans&family=Lato&family=Poppins&family=Work+Sans&family=Oswald&family=Fira+Sans&family=Noto+Sans&family=Noto+Serif&family=Ubuntu&family=Rubik&family=Quicksand&family=Mukta&family=Cabin&family=Arimo&family=Bitter&family=Crimson+Text&family=Alegreya&family=Libre+Baskerville&family=Karla&family=Inter&family=Hind&family=IBM+Plex+Sans&family=IBM+Plex+Serif&family=Barlow&family=Josefin+Sans&family=Cormorant+Garamond&family=Dancing+Script&family=Pacifico&family=Abril+Fatface&family=Comfortaa&family=Lobster&family=Lobster+Two&family=Spectral&family=Signika&family=DM+Sans&family=DM+Serif+Display&family=DM+Serif+Text&family=Prompt&family=Exo+2&family=Asap&family=Inconsolata&family=Lateef&family=Space+Mono&family=Vollkorn&family=Overpass&family=Recursive&family=Lexend&family=Rajdhani&family=Manrope&family=JetBrains+Mono&family=Epilogue&family=Sora&family=Prata&family=Cormorant&family=Catamaran&family=Jost&family=Outfit&family=Mulish&family=Syne&family=Fraunces&family=Public+Sans&family=Figtree&family=Space+Grotesk&family=Red+Hat+Display&family=Red+Hat+Text&family=Red+Hat+Mono&family=Geologica&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vietnamese Font Preview</title>
     
+    <!-- CSS Styles -->
     <style>
-      /* Custom fonts for VNI compatibility */
-      @font-face {
-        font-family: 'VNI-Times';
-        src: url('https://dl.dropbox.com/s/ffk1u7f83fh18ln/vnitimes.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-      }
-      
-      @font-face {
-        font-family: 'VNI-Times-Italic';
-        src: url('https://dl.dropbox.com/s/ylupchvgz5a45tl/vnitimesi.ttf') format('truetype');
-        font-weight: normal;
-        font-style: italic;
-      }
-      
-      @font-face {
-        font-family: 'VNI-Commerce';
-        src: url('./vcommer-ss1.ttf') format('truetype');
-        font-weight: normal;
-        font-style: normal;
-      }
-
-      :root {
-        --background: 0 0% 100%;
-        --foreground: 20 14.3% 4.1%;
-        --muted: 60 4.8% 95.9%;
-        --muted-foreground: 25 5.3% 44.7%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 20 14.3% 4.1%;
-        --card: 0 0% 100%;
-        --card-foreground: 20 14.3% 4.1%;
-        --border: 20 5.9% 90%;
-        --input: 20 5.9% 90%;
-        --primary: 218 76% 56%;
-        --primary-foreground: 217 90% 99%;
-        --secondary: 60 4.8% 95.9%;
-        --secondary-foreground: 24 9.8% 10%;
-        --accent: 60 4.8% 95.9%;
-        --accent-foreground: 24 9.8% 10%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 60 9.1% 97.8%;
-        --ring: 20 14.3% 4.1%;
-        --radius: 0.5rem;
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: 'Inter', sans-serif;
-        background-color: #f6f6f6;
-        color: #333;
-        line-height: 1.5;
-        padding-top: 0;
-      }
-
-      .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1rem 2rem 1rem;
-      }
-
-      header {
-        text-align: center;
-        margin-bottom: 1rem;
-        padding-top: 1rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .subtitle {
-        color: #666;
-        font-size: 1rem;
-      }
-
-      .controls {
-        background-color: #fff;
-        border-radius: 0.5rem;
-        padding: 1rem 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        border: 1px solid #e2e8f0;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-      }
-
-      .control-group {
-        margin-bottom: 1rem;
-      }
-
-      .control-group:last-child {
-        margin-bottom: 0;
-      }
-
-      .control-flex {
-        display: flex;
-        gap: 1.5rem;
-        align-items: flex-start;
-      }
-
-      .control-flex .control-group {
-        flex: 1;
-      }
-
-      label {
-        display: block;
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-      }
-
-      input[type="text"] {
-        width: 100%;
-        padding: 0.75rem;
-        border: 1px solid #e2e8f0;
-        border-radius: 0.25rem;
-        font-size: 1rem;
-      }
-
-      .range-control {
-        display: flex;
-        align-items: center;
-      }
-
-      input[type="range"] {
-        flex: 1;
-        width: 120px;
-      }
-
-      .size-value {
-        margin-left: 0.5rem;
-        font-weight: 500;
-        min-width: 45px;
-      }
-
-      .color-options {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-        height: 100%;
-      }
-
-      .color-option {
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        cursor: pointer;
-        position: relative;
-      }
-
-      .color-option.active {
-        box-shadow: 0 0 0 2px white, 0 0 0 4px #3b82f6;
-      }
-
-      .font-grid {
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
-        gap: 1rem;
-      }
-
-      @media (min-width: 640px) {
-        .font-grid {
-          grid-template-columns: repeat(2, 1fr);
+        /* Base styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-      }
-
-      @media (min-width: 1024px) {
-        .font-grid {
-          grid-template-columns: repeat(3, 1fr);
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f7f7f7;
         }
-      }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header and control panel */
+        .control-panel {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            z-index: 100;
+        }
+        
+        h1 {
+            margin-bottom: 15px;
+            color: #333;
+            text-align: center;
+            font-size: 22px;
+        }
+        
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .text-input-container {
+            width: 100%;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        
+        textarea {
+            width: 100%;
+            height: 40px;
+            min-height: 40px;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: none;
+            overflow: hidden;
+        }
+        
+        .options-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .size-container {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        input[type="range"] {
+            width: 100%;
+            margin: 10px 0;
+        }
+        
+        .color-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .color-option {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            border: 2px solid #ddd;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .color-option.active {
+            border-color: #555;
+            transform: scale(1.1);
+        }
+        
+        /* Font preview grid */
+        .font-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .font-preview {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        .font-name {
+            font-size: 16px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            color: #666;
+        }
+        
+        .preview-text {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            overflow: hidden;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 960px) {
+            .font-preview-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .font-preview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .options-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .color-container {
+                justify-content: flex-start;
+            }
+        }
 
-      .font-card {
-        background-color: #fff;
-        border-radius: 0.5rem;
-        overflow: hidden;
-        border: 1px solid #eaeaea;
-      }
-
-      .font-card-header {
-        background-color: #f8f9fa;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid #eaeaea;
-      }
-
-      .font-card-title {
-        font-size: 0.875rem;
-        font-weight: 500;
-      }
-
-      .font-card-body {
-        padding: 1rem;
-        min-height: 120px;
-      }
-
-      /* Font styles */
-      .font-vni-times { 
-        font-family: 'VNI-Times', serif; 
-      }
-      
-      .font-vni-times-italic { 
-        font-family: 'VNI-Times-Italic', serif; 
-      }
-      
-      .font-vni-commerce { 
-        font-family: 'VNI-Commerce', sans-serif; 
-      }
-      
-      .font-arial { 
-        font-family: Arial, sans-serif; 
-      }
-      
-      .font-times-new-roman { 
-        font-family: 'Times New Roman', serif; 
-      }
-      
-      .font-helvetica { 
-        font-family: Helvetica, sans-serif; 
-      }
-      
-      .uppercase {
-        text-transform: uppercase;
-      }
+        /* Font definitions */
+        @font-face {
+            font-family: 'VNI-Times';
+            src: url('Fonts/VNI-Times.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Times-Bold';
+            src: url('Fonts/VNI-Times-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Times-Italic';
+            src: url('Fonts/VNI-Times-Italic.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        @font-face {
+            font-family: 'VNI-Commerce';
+            src: url('Fonts/VNI-Commerce.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Helve';
+            src: url('Fonts/VNI-Helve.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Aptima';
+            src: url('Fonts/VNI-Aptima.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Centur';
+            src: url('Fonts/VNI-Centur.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'VNI-Chaucer';
+            src: url('Fonts/VNI-Chaucer.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>Xem trước font chữ</h1>
-        
-      </header>
-
-      <div class="controls">
-        <div class="control-group">
-          <label for="text-input">Nhập văn bản</label>
-          <input type="text" id="text-input" value="Nội dung con dấu" placeholder="Nhập văn bản để xem trước">
-        </div>
-        
-        <div class="control-flex">
-          <div class="control-group">
-            <label for="font-size">Kích thước chữ: <span class="size-value">24px</span></label>
-            <div class="range-control">
-              <input type="range" id="font-size" min="12" max="72" value="24">
+</head>
+<body>
+    <header class="control-panel">
+        <div class="container">
+            <h1>Vietnamese Font Preview</h1>
+            <div class="controls">
+                <div class="text-input-container">
+                    <label for="sample-text">Enter short text to preview:</label>
+                    <textarea id="sample-text" placeholder="Type here...">Tiếng Việt</textarea>
+                </div>
+                <div class="options-container">
+                    <div class="size-container">
+                        <label for="font-size">Font Size: <span id="size-value">24</span>px</label>
+                        <input type="range" id="font-size" min="12" max="72" value="24" step="1">
+                    </div>
+                    <div class="color-container">
+                        <label>Color:</label>
+                        <div class="color-options">
+                            <button class="color-option active" data-color="#000000" style="background-color: #000000;"></button>
+                            <button class="color-option" data-color="#FF0000" style="background-color: #FF0000;"></button>
+                            <button class="color-option" data-color="#0000FF" style="background-color: #0000FF;"></button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          
-          <div class="control-group">
-            <label>Màu chữ</label>
-            <div class="color-options">
-              <div class="color-option active" style="background-color: #000000;" data-color="#000000"></div>
-              <div class="color-option" style="background-color: #FF0000;" data-color="#FF0000"></div>
-              <div class="color-option" style="background-color: #0000FF;" data-color="#0000FF"></div>
-            </div>
-          </div>
         </div>
-      </div>
+    </header>
 
-      <div class="font-grid" id="font-grid">
-        <!-- Font cards will be generated here -->
-      </div>
-    </div>
+    <main class="container">
+        <div class="font-preview-grid">
+            <!-- Font previews will be inserted here via JavaScript -->
+        </div>
+    </main>
 
     <script>
-      // Define fonts
-      const fonts = [
-        { name: "VNI-Times normal", class: "font-vni-times", useVni: true },
-        { name: "VNI-Times (UPPERCASE)", class: "font-vni-times", useVni: true, uppercase: true },
-        { name: "VNI-Times (Italic)", class: "font-vni-times-italic", useVni: true },
-        { name: "VNI-Commerce", class: "font-vni-Commerce", useVni: true },
-        { name: "Arial", class: "font-arial" },
-        { name: "Times New Roman", class: "font-times-new-roman" },
-        { name: "Helvetica", class: "font-helvetica" },
-	{ name: "Rockwell", family: "Rockwell, serif" },
-      	{ name: "American Typewriter", family: "American Typewriter, serif" },
-      	{ name: "Baskerville", family: "Baskerville, serif" },
-      ];
-
-      // Unicode to VNI conversion function
-      function unicodeToVni(text) {
-        if (!text) return '';
+        /**
+         * Unicode to VNI Conversion Function
+         * This function converts Unicode Vietnamese text to VNI encoded text
+         * for proper display in VNI fonts.
+         */
+        function unicodeToVni(text) {
+            if (!text) return '';
+            
+            // Define mapping from Unicode to VNI
+            const conversionMap = {
+                // Vowels with diacritics
+                'á': 'aù', 'à': 'aø', 'ả': 'aû', 'ã': 'aõ', 'ạ': 'aï',
+				'ă': 'aê', 'ắ': 'aé', 'ằ': 'aè', 'ẳ': 'aú', 'ẵ': 'aü', 'ặ': 'aë',
+				'â': 'aâ', 'ấ': 'aá', 'ầ': 'aà', 'ẩ': 'aå', 'ẫ': 'aã', 'ậ': 'aä',
+				'é': 'eù', 'è': 'eø', 'ẻ': 'eû', 'ẽ': 'eõ', 'ẹ': 'eï',
+				'ê': 'eâ', 'ế': 'eá', 'ề': 'eà', 'ể': 'eå', 'ễ': 'eã', 'ệ': 'eä',
+				'í': 'í', 'ì': 'ì', 'ỉ': 'æ', 'ĩ': 'ó', 'ị': 'ò',
+				'ó': 'où', 'ò': 'oø', 'ỏ': 'oû', 'õ': 'oõ', 'ọ': 'oï',
+				'ô': 'oâ', 'ố': 'oá', 'ồ': 'oà', 'ổ': 'oå', 'ỗ': 'oã', 'ộ': 'oä',
+				'ơ': 'ô', 'ớ': 'ôù', 'ờ': 'ôø', 'ở': 'ôû', 'ỡ': 'ôõ', 'ợ': 'ôï',
+				'ú': 'uù', 'ù': 'uø', 'ủ': 'uû', 'ũ': 'uõ', 'ụ': 'uï',
+				'ư': 'ö', 'ứ': 'öù', 'ừ': 'öø', 'ử': 'öû', 'ữ': 'öõ', 'ự': 'öï',
+				'ý': 'yù', 'ỳ': 'yø', 'ỷ': 'yû', 'ỹ': 'yõ', 'ỵ': 'î',
+				'đ': 'ñ',
+                
+                // Capital letters
+                'Á': 'AÙ', 'À': 'AØ', 'Ả': 'AÛ', 'Ã': 'AÕ', 'Ạ': 'AÏ',
+				'Ă': 'AÊ', 'Ắ': 'AÉ', 'Ằ': 'AÈ', 'Ẳ': 'AÚ', 'Ẵ': 'AÜ', 'Ặ': 'AË',
+				'Â': 'AÂ', 'Ấ': 'AÁ', 'Ầ': 'AÀ', 'Ẩ': 'AÅ', 'Ẫ': 'AÃ', 'Ậ': 'AÄ',
+				'É': 'EÙ', 'È': 'EØ', 'Ẻ': 'EÛ', 'Ẽ': 'EÕ', 'Ẹ': 'EÏ',
+				'Ê': 'EÂ', 'Ế': 'EÁ', 'Ề': 'EÀ', 'Ể': 'EÅ', 'Ễ': 'EÃ', 'Ệ': 'EÄ',
+				'Í': 'Í', 'Ì': 'Ì', 'Ỉ': 'Æ', 'Ĩ': 'Ó', 'Ị': 'Ò',
+				'Ó': 'OÙ', 'Ò': 'OØ', 'Ỏ': 'OÛ', 'Õ': 'OÕ', 'Ọ': 'OÏ',
+				'Ô': 'OÂ', 'Ố': 'OÁ', 'Ồ': 'OÀ', 'Ổ': 'OÅ', 'Ỗ': 'OÃ', 'Ộ': 'OÄ',
+				'Ơ': 'Ô', 'Ớ': 'ÔÙ', 'Ờ': 'ÔØ', 'Ở': 'ÔÛ', 'Ỡ': 'ÔÕ', 'Ợ': 'ÔÏ',
+				'Ú': 'UÙ', 'Ù': 'UØ', 'Ủ': 'UÛ', 'Ũ': 'UÕ', 'Ụ': 'UÏ',
+				'Ư': 'Ö', 'Ứ': 'ÖÙ', 'Ừ': 'ÖØ', 'Ử': 'ÖÛ', 'Ữ': 'ÖÕ', 'Ự': 'ÖÏ',
+				'Ý': 'YÙ', 'Ỳ': 'YØ', 'Ỷ': 'YÛ', 'Ỹ': 'YÕ', 'Ỵ': 'Î',
+				'Đ': 'Ñ'
+            };
         
-        // Based on VNI-Web encoding (Tiếng Việt -> Tie61ng Vie65t)
-        // Common pattern: vowel + tone number
-        // Tone numbers: 1=acute, 2=grave, 3=hook above, 4=tilde, 5=dot below
-        // Special characters: a8=ă, a6=â, d9=đ, e6=ê, o6=ô, o7=ơ, u7=ư
-        const vniMap = {
-          // A
-          'á': 'aù', 'à': 'aø', 'ả': 'aû', 'ã': 'aõ', 'ạ': 'aï',
-      	  'ă': 'aê', 'ắ': 'aé', 'ằ': 'aè', 'ẳ': 'aú', 'ẵ': 'aü', 'ặ': 'aë',
-      	  'â': 'aâ', 'ấ': 'aá', 'ầ': 'aà', 'ẩ': 'aå', 'ẫ': 'aã', 'ậ': 'aä',
-          
-          // E
-          'é': 'eù', 'è': 'eø', 'ẻ': 'eû', 'ẽ': 'eõ', 'ẹ': 'eï',
-      	  'ê': 'eâ', 'ế': 'eá', 'ề': 'eà', 'ể': 'eå', 'ễ': 'eã', 'ệ': 'eä',
-          
-          // I
-          'í': 'í', 'ì': 'ì', 'ỉ': 'æ', 'ĩ': 'ó', 'ị': 'ò',
-          
-          // O
-          'ó': 'où', 'ò': 'oø', 'ỏ': 'oû', 'õ': 'oõ', 'ọ': 'oï',
-      	  'ô': 'oâ', 'ố': 'oá', 'ồ': 'oà', 'ổ': 'oå', 'ỗ': 'oã', 'ộ': 'oä',
-      	  'ơ': 'ô', 'ớ': 'ôù', 'ờ': 'ôø', 'ở': 'ôû', 'ỡ': 'ôõ', 'ợ': 'ôï',
-          
-          // U
-          'ú': 'uù', 'ù': 'uø', 'ủ': 'uû', 'ũ': 'uõ', 'ụ': 'uï',
-      	  'ư': 'ö', 'ứ': 'öù', 'ừ': 'öø', 'ử': 'öû', 'ữ': 'öõ', 'ự': 'öï',
-          
-          // Y
-          'ý': 'yù', 'ỳ': 'yø', 'ỷ': 'yû', 'ỹ': 'yõ', 'ỵ': 'î',
-          
-          // D
-          'đ': 'ñ',
-          
-          // UPPERCASE A
-          'Á': 'AÙ', 'À': 'AØ', 'Ả': 'AÛ', 'Ã': 'AÕ', 'Ạ': 'AÏ',
-      	  'Ă': 'AÊ', 'Ắ': 'AÉ', 'Ằ': 'AÈ', 'Ẳ': 'AÚ', 'Ẵ': 'AÜ', 'Ặ': 'AË',
-      	  'Â': 'AÂ', 'Ấ': 'AÁ', 'Ầ': 'AÀ', 'Ẩ': 'AÅ', 'Ẫ': 'AÃ', 'Ậ': 'AÄ',
-          
-          // UPPERCASE E
-          'É': 'EÙ', 'È': 'EØ', 'Ẻ': 'EÛ', 'Ẽ': 'EÕ', 'Ẹ': 'EÏ',
-      	  'Ê': 'EÂ', 'Ế': 'EÁ', 'Ề': 'EÀ', 'Ể': 'EÅ', 'Ễ': 'EÃ', 'Ệ': 'EÄ',
-          
-          // UPPERCASE I
-          'Í': 'Í', 'Ì': 'Ì', 'Ỉ': 'Æ', 'Ĩ': 'Ó', 'Ị': 'Ò',
-          
-          // UPPERCASE O
-          'Ó': 'OÙ', 'Ò': 'OØ', 'Ỏ': 'OÛ', 'Õ': 'OÕ', 'Ọ': 'OÏ',
-      	  'Ô': 'OÂ', 'Ố': 'OÁ', 'Ồ': 'OÀ', 'Ổ': 'OÅ', 'Ỗ': 'OÃ', 'Ộ': 'OÄ',
-      	  'Ơ': 'Ô', 'Ớ': 'ÔÙ', 'Ờ': 'ÔØ', 'Ở': 'ÔÛ', 'Ỡ': 'ÔÕ', 'Ợ': 'ÔÏ',
-          
-          // UPPERCASE U
-          'Ú': 'UÙ', 'Ù': 'UØ', 'Ủ': 'UÛ', 'Ũ': 'UÕ', 'Ụ': 'UÏ',
-     	  'Ư': 'Ö', 'Ứ': 'ÖÙ', 'Ừ': 'ÖØ', 'Ử': 'ÖÛ', 'Ữ': 'ÖÕ', 'Ự': 'ÖÏ',
-          
-          // UPPERCASE Y
-          'Ý': 'YÙ', 'Ỳ': 'YØ', 'Ỷ': 'YÛ', 'Ỹ': 'YÕ', 'Ỵ': 'Î',
-          
-          // UPPERCASE D
-          'Đ': 'Ñ'
-        };
+            // Create a regular expression to match all characters to be replaced
+            const regex = new RegExp(Object.keys(conversionMap).join('|'), 'g');
         
-        let result = '';
-        for (let i = 0; i < text.length; i++) {
-          const char = text[i];
-          result += vniMap[char] || char;
+            // Replace each matched character with its VNI equivalent
+            return text.replace(regex, match => conversionMap[match]);
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Font configurations
+            const fontFamilies = [
+                { name: 'VNI-Times (normal)', family: 'VNI-Times', requiresVni: true },
+                { name: 'VNI-Times (uppercase)', family: 'VNI-Times-Bold', requiresVni: true, style: 'normal', transform: 'uppercase' },
+                { name: 'VNI-Times (Italic)', family: 'VNI-Times-Italic', requiresVni: true, style: 'italic' },
+                { name: 'VNI-Commerce', family: 'VNI-Commerce', requiresVni: true },
+                { name: 'VNI-Helve', family: 'VNI-Helve', requiresVni: true },
+                { name: 'VNI-Aptima', family: 'VNI-Aptima', requiresVni: true },
+                { name: 'VNI-Centur', family: 'VNI-Centur', requiresVni: true },
+                { name: 'VNI-Chaucer', family: 'VNI-Chaucer', requiresVni: true },
+                { name: 'Arial', family: 'Arial', requiresVni: false },
+                { name: 'Times New Roman', family: 'Times New Roman', requiresVni: false }
+            ];
         
-        return result;
-      }
-
-      // Initialize state
-      let state = {
-        text: 'Nội dung con dấu',
-        fontSize: 24,
-        textColor: '#000000'
-      };
-
-      // DOM elements
-      const textInput = document.getElementById('text-input');
-      const fontSizeInput = document.getElementById('font-size');
-      const sizeValue = document.querySelector('.size-value');
-      const colorOptions = document.querySelectorAll('.color-option');
-      const fontGrid = document.getElementById('font-grid');
-
-      // Render function
-      function renderFonts() {
-        fontGrid.innerHTML = '';
+            // DOM elements
+            const sampleTextInput = document.getElementById('sample-text');
+            const fontSizeSlider = document.getElementById('font-size');
+            const sizeValueDisplay = document.getElementById('size-value');
+            const colorOptions = document.querySelectorAll('.color-option');
+            const previewGrid = document.querySelector('.font-preview-grid');
         
-        fonts.forEach(font => {
-          // Process text for display
-          const displayText = font.useVni ? unicodeToVni(state.text) : state.text;
-          
-          // Create font card
-          const card = document.createElement('div');
-          card.className = 'font-card';
-          
-          // Create header
-          const header = document.createElement('div');
-          header.className = 'font-card-header';
-          
-          const title = document.createElement('h3');
-          title.className = 'font-card-title';
-          title.textContent = font.name;
-          
-          header.appendChild(title);
-          
-          // Create body
-          const body = document.createElement('div');
-          body.className = 'font-card-body';
-          
-          const text = document.createElement('p');
-          text.className = font.class + (font.uppercase ? ' uppercase' : '');
-          text.style.fontSize = state.fontSize + 'px';
-          text.style.color = state.textColor;
-          text.textContent = displayText;
-          
-          body.appendChild(text);
-          
-          // Assemble card
-          card.appendChild(header);
-          card.appendChild(body);
-          
-          // Add to grid
-          fontGrid.appendChild(card);
+            // Initial state
+            let currentText = sampleTextInput.value;
+            let currentSize = fontSizeSlider.value;
+            let currentColor = '#000000'; // Default black
+        
+            // Initialize font previews
+            createFontPreviews();
+        
+            // Event listeners
+            sampleTextInput.addEventListener('input', function() {
+                currentText = this.value;
+                updatePreviews();
+                
+                // Auto-adjust height for one-line text
+                this.style.height = 'auto';
+                this.style.height = Math.min(40, this.scrollHeight) + 'px';
+            });
+        
+            fontSizeSlider.addEventListener('input', function() {
+                currentSize = this.value;
+                sizeValueDisplay.textContent = currentSize;
+                updatePreviews();
+            });
+        
+            colorOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Remove active class from all options
+                    colorOptions.forEach(opt => opt.classList.remove('active'));
+                    // Add active class to selected option
+                    this.classList.add('active');
+                    // Update current color
+                    currentColor = this.getAttribute('data-color');
+                    updatePreviews();
+                });
+            });
+        
+            // Function to create font preview elements
+            function createFontPreviews() {
+                previewGrid.innerHTML = ''; // Clear existing previews
+                
+                fontFamilies.forEach(font => {
+                    const previewElement = document.createElement('div');
+                    previewElement.className = 'font-preview';
+                    
+                    const fontNameElement = document.createElement('h3');
+                    fontNameElement.className = 'font-name';
+                    fontNameElement.textContent = font.name;
+                    
+                    const previewTextElement = document.createElement('p');
+                    previewTextElement.className = 'preview-text';
+                    previewTextElement.setAttribute('data-font-family', font.family);
+                    previewTextElement.setAttribute('data-requires-vni', font.requiresVni);
+                    
+                    // Set initial text and styling
+                    updatePreviewText(previewTextElement, currentText, font.requiresVni);
+                    previewTextElement.style.fontFamily = font.family;
+                    previewTextElement.style.fontSize = `${currentSize}px`;
+                    previewTextElement.style.color = currentColor;
+                    
+                    // Apply additional styles if specified
+                    if (font.style) {
+                        previewTextElement.style.fontStyle = font.style;
+                    }
+                    
+                    // Apply text transform if specified
+                    if (font.transform) {
+                        previewTextElement.style.textTransform = font.transform;
+                    }
+                    
+                    previewElement.appendChild(fontNameElement);
+                    previewElement.appendChild(previewTextElement);
+                    previewGrid.appendChild(previewElement);
+                });
+            }
+        
+            // Function to update preview text with proper conversion
+            function updatePreviewText(element, text, requiresVni) {
+                if (requiresVni) {
+                    element.textContent = unicodeToVni(text);
+                } else {
+                    element.textContent = text;
+                }
+            }
+        
+            // Function to update all previews
+            function updatePreviews() {
+                const previewTexts = document.querySelectorAll('.preview-text');
+                
+                previewTexts.forEach((preview, index) => {
+                    const requiresVni = preview.getAttribute('data-requires-vni') === 'true';
+                    const font = fontFamilies[index];
+                    
+                    updatePreviewText(preview, currentText, requiresVni);
+                    preview.style.fontSize = `${currentSize}px`;
+                    preview.style.color = currentColor;
+                    
+                    // Ensure styles and transforms are maintained when updating
+                    if (font.style) {
+                        preview.style.fontStyle = font.style;
+                    }
+                    
+                    if (font.transform) {
+                        preview.style.textTransform = font.transform;
+                    }
+                });
+            }
+        
+            // Call initial update to ensure everything is rendered correctly
+            updatePreviews();
         });
-      }
-
-      // Event listeners
-      textInput.addEventListener('input', e => {
-        state.text = e.target.value;
-        renderFonts();
-      });
-
-      fontSizeInput.addEventListener('input', e => {
-        state.fontSize = e.target.value;
-        sizeValue.textContent = state.fontSize + 'px';
-        renderFonts();
-      });
-
-      colorOptions.forEach(option => {
-        option.addEventListener('click', e => {
-          // Remove active class from all options
-          colorOptions.forEach(opt => opt.classList.remove('active'));
-          
-          // Add active class to clicked option
-          option.classList.add('active');
-          
-          // Update state
-          state.textColor = option.dataset.color;
-          renderFonts();
-        });
-      });
-
-      // Initial render
-      renderFonts();
     </script>
-  </body>
+</body>
 </html>
