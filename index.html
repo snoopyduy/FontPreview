@@ -180,20 +180,44 @@
             font-style: italic;
         }
 	@font-face {
-            font-family: 'VNI-Swiss';
-            src: url('Fonts/VNI-Swiss.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }    
-        @font-face {
-            font-family: 'VNI-Commerce';
-            src: url('Fonts/VNI-Commerce.ttf') format('truetype');
+            font-family: 'VNI-Helve';
+            src: url('Fonts/VNI-Helve.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
-        @font-face {
-            font-family: 'VNI-Helve';
-            src: url('Fonts/VNI-Helve.ttf') format('truetype');
+	@font-face {
+            font-family: 'VNI-Chaucer';
+            src: url('Fonts/VNI-Chaucer.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+	@font-face {
+            font-family: 'VNI-Centur';
+            src: url('Fonts/VNI-Centur.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+	@font-face {
+            font-family: 'VNI-Briquet';
+            src: url('Fonts/VNI-Briquet.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+	@font-face {
+            font-family: 'VNI-Bodon';
+            src: url('Fonts/VNI-Bodon.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+	@font-face {
+            font-family: 'VNI-Bengus';
+            src: url('Fonts/VNI-Bengus.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }    
+	@font-face {
+            font-family: 'VNI-Commerce';
+            src: url('Fonts/VNI-Commerce.ttf') format('truetype');
             font-weight: normal;
             font-style: normal;
         }
@@ -203,18 +227,8 @@
             font-weight: normal;
             font-style: normal;
         }
-        @font-face {
-            font-family: 'VNI-Centur';
-            src: url('Fonts/VNI-Centur.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
-        @font-face {
-            font-family: 'VNI-Chaucer';
-            src: url('Fonts/VNI-Chaucer.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-        }
+        
+        
 	@font-face {
             font-family: 'VNI-Zap';
             src: url('Fonts/VNI-Zap.ttf') format('truetype');
@@ -320,20 +334,20 @@
         document.addEventListener('DOMContentLoaded', function() {
             // Font configurations
             const fontFamilies = [
-                //{ name: 'VNI-Swiss (normal)', family: 'VNI-Swiss', requiresVni: true },
-                //{ name: 'VNI-Swiss (uppercase)', family: 'VNI-Swiss', requiresVni: true, style: 'normal', transform: 'uppercase' },
-                { name: 'VNI-Times (Italic)', family: 'VNI-Times-Italic', requiresVni: true, style: 'italic' },
-                { name: 'VNI-Commerce', family: 'VNI-Commerce', requiresVni: true },
-                { name: 'VNI-Helve', family: 'VNI-Helve', requiresVni: true },
-                { name: 'VNI-Aptima', family: 'VNI-Aptima', requiresVni: true },
-                { name: 'VNI-Centur', family: 'VNI-Centur', requiresVni: true },
-                { name: 'VNI-Chaucer', family: 'VNI-Chaucer', requiresVni: true },
-		{ name: 'VNI-Zap', family: 'VNI-Zap', requiresVni: true },
-		{ name: 'VNI-Upital', family: 'VNI-Upital', requiresVni: true },
-		{ name: 'VNI-Times', family: 'VNI-Times', requiresVni: true },    
-		//{ name: 'VNI-Swiss', family: 'VNI-Swiss', requiresVni: true },
-                { name: 'Arial', family: 'Arial', requiresVni: false },
-                { name: 'Times New Roman', family: 'Times New Roman', requiresVni: false }
+                { name: 'Font 01', family: 'Times New Roman', requiresVni: false, transform: 'uppercase' }, 	//1
+		{ name: 'VNI-Helve', family: 'VNI-Helve', requiresVni: true },   				//2
+		{ name: 'VNI-Times (Italic)', family: 'Times New Roman Italic', requiresVni: false, style: 'italic' },	//3
+                { name: 'Times New Roman', family: 'Times New Roman', requiresVni: false }			//4
+		{ name: 'VNI-Chaucer', family: 'VNI-Chaucer', requiresVni: true },				//5
+		{ name: 'VNI-Centur', family: 'VNI-Centur', requiresVni: true },				//6
+		{ name: 'VNI-Briquet', family: 'VNI-Briquet', requiresVni: true },				//7
+		{ name: 'VNI-Bodon', family: 'VNI-Bodon', requiresVni: true },					//8
+		{ name: 'VNI-Bengus', family: 'VNI-Bengus', requiresVni: true },				//9
+		{ name: 'VNI-Commerce', family: 'VNI-Commerce', requiresVni: true },				//10
+               	{ name: 'VNI-Zap', family: 'VNI-Zap', requiresVni: true },					//11
+		{ name: 'VNI-Upital', family: 'VNI-Upital', requiresVni: true },				//12
+		{ name: 'Arial', family: 'Arial', requiresVni: false },						//13
+                
             ];
         
             // DOM elements
