@@ -106,7 +106,23 @@
             cursor: pointer;
             transition: transform 0.2s;
         }
-        
+
+	/* Adjust for mobile screens */
+        @media (max-width: 600px) {
+            .color-container {
+                gap: 5px;
+            }
+            
+            .color-options {
+                gap: 5px;
+            }
+            
+            .color-option {
+                width: 25px;
+                height: 25px;
+            }
+        }
+	    
         .color-option:hover {
             transform: scale(1.1);
         }
@@ -157,12 +173,21 @@
                 grid-template-columns: 1fr;
             }
             
+            /* Keep options in same row but make size container smaller */
             .options-container {
-                flex-direction: column;
-                align-items: stretch;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .size-container {
+                flex: 0 1 55%; /* Take about 55% of the space */
+                min-width: 120px; /* Reduced from 200px */
             }
             
             .color-container {
+                flex: 0 1 40%; /* Take about 40% of the space */
                 justify-content: flex-start;
             }
         }
