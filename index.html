@@ -62,16 +62,13 @@
             color: #555;
         }
         
-        text {
+        input[type="text"] {
             width: 100%;
-            min-height: 40px;
             padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
             font-size: 16px;
-            resize: none;
-            overflow: hidden;
-	}
+        }
         
         .options-container {
             display: flex;
@@ -255,7 +252,7 @@
             <div class="controls">
                 <div class="text-input-container">
                     <label for="sample-text">Nhập nội dung:</label>
-                    <input type="text" id="sample-text" placeholder="Nội dung dấu"/> 
+                    <input type="text" id="sample-text" placeholder="Type here..." value="Nội dung dấu"> 
 			
                 </div>
                 <div class="options-container">
@@ -371,8 +368,8 @@
                 updatePreviews();
                 
                 // Auto-adjust height for one-line text
-                this.style.height = 'auto';
-                this.style.height = Math.min(40, this.scrollHeight) + 'px';
+                //this.style.height = 'auto';
+                //this.style.height = Math.min(40, this.scrollHeight) + 'px';
             });
         
             fontSizeSlider.addEventListener('input', function() {
